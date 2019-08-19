@@ -1,0 +1,14 @@
+.data-cnt {
+  width: 51%;
+  border: 1px solid dodgerblue;
+  margin-top: 10px;
+  border-radius: 20px;
+  text-align: center;
+  transition: 1s;
+}
+.data-cnt p:nth-child(2) {
+  display: none;
+}
+.data-cnt:hover p:nth-child(2) {
+  display: inline-block;
+}
