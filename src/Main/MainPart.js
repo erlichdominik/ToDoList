@@ -27,10 +27,14 @@ class Main extends Component {
     }
 
     handleDeleteEl = (event, index) => {
-
+        console.log(event)
+        let newData = this.props.toDoDatas.slice();
+        newData.splice(index, 1);
+        this.setState({ newtoDo: newData },
+            () => { this.props.refreshData(this.state.newtoDo) })
     }
 
-    handleSubmitButton = (event, index) => {
+    handleSubmitButton = (event) => {
 
         event.preventDefault();
 
@@ -45,6 +49,14 @@ class Main extends Component {
     }
 
     render() {
+        let added = this.props.toDoDatas.map((el, index) => {
+            return <TaskList
+                key={index}
+                taskValue={el.taskValue}
+                descValue={el.descValue}
+                clicked={() => this.handleDeleteEl(el, index)}
+            />
+        });
         return (
             <>
                 <div className='main-cnt'
@@ -67,9 +79,7 @@ class Main extends Component {
                     <ButtonSubmit
                         handleSubmitButton={this.handleSubmitButton} />
 
-                    <TaskList
-                        toDoDatas={this.props.toDoDatas}
-                        clicked={this.handleDeleteEl()} />
+                    {added}
 
                 </div>
             </>

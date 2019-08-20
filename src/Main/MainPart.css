@@ -6,9 +6,19 @@
   text-align: center;
   transition: 1s;
 }
-.data-cnt p:nth-child(2) {
+.dlt-btn,
+.edt-btn {
+  border: none;
+  background-color: dodgerblue;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  width: 50px;
+  margin: 0px 5px;
+}
+.data-cnt p:nth-child(4) {
   display: none;
 }
-.data-cnt:hover p:nth-child(2) {
+.data-cnt:hover p:nth-child(4) {
   display: inline-block;
 }

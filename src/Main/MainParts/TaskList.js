@@ -3,18 +3,22 @@ import React from 'react';
 const TaskList = (props) => {
 
     return (
-        props.toDoDatas.map((el, index) => {
-            return (
-                <div key={index}
-                    onClick={() => props.clicked(index)}
-                    className="data-cnt">
+        <div className="data-cnt">
+            <button
+                type='button'
+                className='dlt-btn'
+                onClick={props.clicked}
+            >delete
+            </button>
+            <button
+                type='button'
+                className='edt-btn'
+                onClick={props.edit}>edit</button>
+            <p className="task-value">{props.taskValue}</p>
+            <p className="desc-value">Description: {props.descValue}</p>
+        </div>
+    );
+};
 
-                    <p className="task-value">{el.taskValue}</p>
-                    <p className="desc-value">{el.descValue}</p>
-
-                </div>
-            );
-        }));
-}
 
 export default TaskList;
