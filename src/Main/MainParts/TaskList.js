@@ -14,8 +14,8 @@ const TaskList = (props) => {
                 type='button'
                 className='edt-btn'
                 onClick={props.edit}>edit</button>
-            <p className="task-value">{props.taskValue}</p>
-            <p className="desc-value">Description: {props.descValue}</p>
+            <p className="task-value" onDoubleClick={props.edit} contentEditable={props.editable}>{props.taskValue}</p>
+            <p className="desc-value" contentEditable={props.editable}>Description: {props.descValue}</p>
         </div>
     );
 };

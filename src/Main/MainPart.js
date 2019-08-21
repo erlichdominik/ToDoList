@@ -12,6 +12,7 @@ class Main extends Component {
         taskValue: "",
         descValue: "",
         newtoDo: [],
+        editable: false,
     }
 
     handleOnChangeTask = event => {
@@ -48,13 +49,23 @@ class Main extends Component {
             () => { this.props.refreshData(this.state.newtoDo) })
     }
 
+    handleEditable = (event, index) => {
+        this.setState({
+            editable: !this.state.editable
+        })
+
+        console.log(this.props.toDoDatas[index].taskValue)
+    }
+
     render() {
         let added = this.props.toDoDatas.map((el, index) => {
             return <TaskList
                 key={index}
+                editable={this.state.editable}
                 taskValue={el.taskValue}
                 descValue={el.descValue}
                 clicked={() => this.handleDeleteEl(el, index)}
+                edit={() => this.handleEditable(el, index)}
             />
         });
         return (
